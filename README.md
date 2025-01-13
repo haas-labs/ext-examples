@@ -13,6 +13,11 @@ npm install express axios dotenv
 node app.js
 ```
 
+Debugging
+
+```
+NODE_DEBUG=app node app.js
+```
 
 
 

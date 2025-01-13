@@ -1,6 +1,8 @@
 const express = require('express');
 const axios = require('axios');
 require('dotenv').config();
+const util = require('util');
+const debug = util.debuglog('app');
 
 const app = express();
 const port = process.env.PORT || 8300;
@@ -27,7 +29,7 @@ async function ext_contract_add(pid, address, chain, name) {
     }
   });
   
-  console.info(`[ext_contract_add] rsp:${rsp.status}, ${rsp.data}`);  
+  debug(`[ext_contract_add] rsp:${rsp.status}, ${rsp.data}`);  
   return rsp.data;
 }
 
@@ -41,7 +43,7 @@ async function ext_contract_get(cid) {
     }
   });
   
-  console.info(`[ext_contract_get] rsp:${rsp.status}, ${rsp.data}`);
+  debug(`[ext_contract_get] rsp:${rsp.status}, ${rsp.data}`);
   return rsp.data;
 }
 
@@ -67,7 +69,7 @@ async function ext_detector_add(cid, sid, name, config) {
     }
   });
   
-  console.info(`[ext_detector_add] rsp:${rsp.status}, ${rsp.data}`);  
+  debug(`[ext_detector_add] rsp:${rsp.status}, ${rsp.data}`);  
   return rsp.data;
 }
 
@@ -117,6 +119,9 @@ app.post('/webhook', async (req, res) => {
     res.status(500).json({ status: 'ERROR', error: error.message });
   }
 });
+
+
+// This will only show when NODE_DEBUG includes 'app'
 
 app.listen(port, () => {
   console.log(`Listen: 0.0.0.0:${port}`);
