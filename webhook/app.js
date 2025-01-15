@@ -84,6 +84,7 @@ app.post('/webhook', async (req, res) => {
   console.info('[webhook] req:', req.body);
 
   try {
+    // get contract
     const contract = await ext_contract_get(req.body.data.contract.id)
     const pid = contract.projectId;
       
@@ -119,9 +120,6 @@ app.post('/webhook', async (req, res) => {
     res.status(500).json({ status: 'ERROR', error: error.message });
   }
 });
-
-
-// This will only show when NODE_DEBUG includes 'app'
 
 app.listen(port, () => {
   console.log(`Listen: 0.0.0.0:${port}`);
