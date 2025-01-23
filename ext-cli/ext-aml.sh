@@ -12,7 +12,7 @@ curl -S -s -D /dev/stderr \
    -H "Authorization: Bearer $ACCESS_TOKEN" \
    $SERVICE_URI/aml/gl/${ADDR}?meta=report
 
-# DoS !
+
 # curl -S -s -D /dev/stderr \
 #    -X GET \
 #    -H 'Content-Type: application/json' \
