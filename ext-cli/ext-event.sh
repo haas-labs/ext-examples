@@ -1,7 +1,7 @@
 cid=${1:-7846}
 ADDR=${2:-0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266}
 
-EVENT_URI=${SERVICE_URI:-https://localhost:8080/api/v1}
+SERVICE_URI=${SERVICE_URI:-https://localhost:8080/api/v1}
 ACCESS_TOKEN=${ACCESS_TOKEN-`cat ACCESS_TOKEN`}
 
 ts=$(date +%s%3N)
@@ -46,5 +46,5 @@ curl -S -s -D /dev/stderr \
    -H 'Content-Type: application/json' \
    -H "Authorization: Bearer $ACCESS_TOKEN" \
    --data "$DATA_JSON" \
-   $EVENT_URI/event
+   $SERVICE_URI/event
 
