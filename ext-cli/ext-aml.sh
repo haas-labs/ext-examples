@@ -1,5 +1,5 @@
 # TID - alien tenantID only works with Admin JWT
-ADDR=${1:-anvil:0x4675c7e5baafbffbca748158becba61ef3b0a263}
+ADDR=${1:-0x4675c7e5baafbffbca748158becba61ef3b0a263}
 META=${2:-uncached}
 
 SERVICE_URI=${AML_URI:-https://localhost:8080/api/v1}
