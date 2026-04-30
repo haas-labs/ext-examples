@@ -1,3 +1,6 @@
+#!/bin/bash
+CWD=`echo $(dirname $(readlink -f $0))`
+
 AID=${1:-10646:fccb963a-104c-4086-946c-d5bec35d68be}
 
 # ADDR=${2:-0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266}

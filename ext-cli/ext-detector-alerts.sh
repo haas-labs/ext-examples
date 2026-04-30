@@ -1,4 +1,7 @@
-cid=${1:-4976}
+#!/bin/bash
+CWD=`echo $(dirname $(readlink -f $0))`
+
+CID=${1:-4976}
 # ADDR=${2:-0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266}
 MAX=${MAX:-20}
 
@@ -12,7 +15,7 @@ read -d '' DATA_JSON <<EOF
 {
   "from":0,
   "size":${MAX},
-  "query":"(contractId:$cid AND tags:SECURITY) AND timestamp:[$ts0 TO $ts1]",
+  "query":"(contractId:$CID AND tags:SECURITY) AND timestamp:[$ts0 TO $ts1]",
   "trackTotal":true,
   "sort":[{"field":"timestamp","order":"Desc"}],
   "timeseries":[{"from":$ts0,"to":$ts1}]

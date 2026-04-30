@@ -1,3 +1,6 @@
+#!/bin/bash
+CWD=`echo $(dirname $(readlink -f $0))`
+
 # Search Contracts by Name/Address
 
 PID=${1:-898}
@@ -19,8 +22,7 @@ else
    DATA_JSON="{\"from\":0,\"size\":100,\"trackTotal\":false,\"where\":\"projectId = $PID\"}"
 fi
 
-#curl -S -s -D /dev/stderr \
-curl -i \
+curl -S -s -D /dev/stderr \
    -X POST \
    -H 'Content-Type: application/json' \
    -H "Authorization: Bearer $ACCESS_TOKEN" \

@@ -1,3 +1,6 @@
+#!/bin/bash
+CWD=`echo $(dirname $(readlink -f $0))`
+
 # TID - alien tenantID only works with Admin JWT
 TID=${1:-490}
 

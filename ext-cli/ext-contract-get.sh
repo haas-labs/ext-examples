@@ -1,3 +1,6 @@
+#!/bin/bash
+CWD=`echo $(dirname $(readlink -f $0))`
+
 # TID - alient tenantID only works with Admin JWT
 CID=${1:-3113}
 
@@ -6,9 +9,14 @@ ACCESS_TOKEN=${ACCESS_TOKEN-`cat ACCESS_TOKEN`}
 
 >&2 echo "CID=$CID"
 
+#curl -S -s -D /dev/stderr \
+#   -X GET \
+#   -H 'Content-Type: application/json' \
+#   -H "Authorization: Bearer $ACCESS_TOKEN" \
+#   $SERVICE_URI/contract/${CID}/withAbi
+   
 curl -S -s -D /dev/stderr \
    -X GET \
    -H 'Content-Type: application/json' \
    -H "Authorization: Bearer $ACCESS_TOKEN" \
-   $SERVICE_URI/contract/${CID}/withAbi
-   
+   $SERVICE_URI/contract/${CID}

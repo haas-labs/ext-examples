@@ -1,3 +1,5 @@
+#!/bin/bash
+CWD=`echo $(dirname $(readlink -f $0))`
 
 TID=${1:-490}
 
